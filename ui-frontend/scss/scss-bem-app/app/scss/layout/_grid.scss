@@ -1,0 +1,14 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  gap: 40px;
+
+  &__main {
+
+  }
+
+  &__sidebar {
+
+  }
+}
