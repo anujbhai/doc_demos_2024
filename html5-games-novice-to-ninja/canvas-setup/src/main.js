@@ -8,23 +8,54 @@
   /*
    * Starfield
    * */
-  // ctx.fillStyle = "black"
-  //
-  // ctx.fillRect(0, 0, w, h);
-  // ctx.fillStyle = "#555"
-  //
-  // let x, y, radius
-  //
-  // for (let i = 0; i < 550; i++) {
-  //   x = Math.random() * w
-  //   y = Math.random() * h
-  //   radius = Math.random() * 3
-  //
-  //   // draw the star
-  //   ctx.beginPath()
-  //   ctx.arc(x, y, radius, Math.PI * 2, false)
-  //   ctx.fill()
-  // }
+
+  /*
+   * Logo
+   * */
+  ctx.fillRect(0, 0, w, h);
+  ctx.fillStyle = "#444";
+  let x, y, radius;
+  for (let i = 0; i < 550; i++) {
+    x = Math.random() * w;
+    y = Math.random() * h;
+    radius = Math.random() * 3;
+
+    ctx.beginPath();
+    ctx.arc(x, y, radius, 0, Math.PI * 2, false);
+    ctx.fill();
+  }
+
+  ctx.translate(225, 150);
+
+  // Draw the words as a mask
+  ctx.font = "bold 70pt monospace";
+  ctx.fillStyle = "black";
+  ctx.fillText("MOM", 10, 60);
+  ctx.fillText("POP", 10, 118);
+
+  // Draw lines over the mask
+  ctx.globalCompositeOperation = "source-atop";
+
+  // Rainbow!
+  for (let i = 0; i < 6; i++) {
+    ctx.fillStyle = `hsl(${i * (250 / 6)}, 90%, 55%)`;
+    ctx.fillRect(0, i * 20, 200, 20);
+  }
+
+  // Draw the shadow behind the logo
+  ctx.fillStyle = "#999";
+  ctx.globalCompositeOperation = "destination-over";
+  ctx.fillText("MOM", 13, 62);
+  ctx.fillText("POP", 13, 120);
+  ctx.font = "30pt monospace";
+
+  // Back to default
+  ctx.globalCompositeOperation = "source-over";
+
+  // Add characters (so they are evenly spaced)
+  "games".split("").forEach((ch, i) => {
+    ctx.fillText(ch, i * 37 + 12, 145);
+  });
 
   /*
    * Canvas text
@@ -88,41 +119,71 @@
   /*
    * Transforms
    * */
-  ctx.translate(w / 2, h / 2)
-
-  ctx.fillStyle = "black"
-  draw()
-
-  ctx.save()
-  ctx.fillStyle = "red"
-  draw()
-  ctx.restore()
-
+  // ctx.translate(w / 2, h / 2)
+  //
+  // ctx.fillStyle = "black"
+  // draw()
+  //
+  // ctx.save()
+  // ctx.fillStyle = "red"
+  // draw()
+  // ctx.restore()
   // Back in black
-  draw()
-  function draw() {
-    // Rect stack
-    // **********
-    // for (let i = 0; i < 100; i++) {
-    //   const x = Math.random() * w
-    //   const y = Math.random() * h
-    //
-    //   ctx.fillRect(x, y, 50, 50)
-    // }
+  // draw()
 
-    // Kleidoscope
-    // ***********
-    for (let ring = 1; ring < 28; ring++) {
-      ctx.fillStyle = `hsl(${ring * 25}, 90%, 50%)`
+  /*
+   * alpha
+   * */
+  // ctx.save()
+  // ctx.save()
+  // ctx.globalAlpha = 0.3
+  // ctx.fillStyle = "blue"
+  // draw()
+  //
+  // ctx.fillStyle = "orange"
+  // draw()
+  //
+  // ctx.fillStyle = "green"
+  // draw()
+  //
+  // ctx.restore()
+  // ctx.fillStyle = "lemonchiffon"
+  // draw()
 
-      for (let dots = 0; dots < ring * 6; dots++) {
-        ctx.rotate((Math.PI * 2) / (ring * 6))
-        ctx.beginPath()
-        ctx.arc(0, ring * 15, 7, 0, Math.PI * 2, true)
-        ctx.fill()
-      }
-    }
-  }
+  // function draw() {
+  // Rect stack
+  // **********
+  // for (let i = 0; i < 100; i++) {
+  //   const x = Math.random() * w
+  //   const y = Math.random() * h
+  //
+  //   ctx.fillRect(x, y, 50, 50)
+  // }
+
+  // Kleidoscope
+  // ***********
+  // for (let ring = 1; ring < 28; ring++) {
+  //   ctx.fillStyle = `hsl(${ring * 25}, 90%, 50%)`
+  //
+  //   for (let dots = 0; dots < ring * 6; dots++) {
+  //     ctx.rotate((Math.PI * 2) / (ring * 6))
+  //     ctx.beginPath()
+  //     ctx.arc(0, ring * 15, 7, 0, Math.PI * 2, true)
+  //     ctx.fill()
+  //   }
+  // }
+
+  // blending and alpha
+  // ******************
+  //   for (let i = 0; i < 100; i++) {
+  //     const x = Math.random() * w;
+  //     const y = Math.random() * h;
+  //
+  //     ctx.beginPath()
+  //     ctx.arc(x, y, Math.random() * 50, 0, Math.PI * 2, true)
+  //     ctx.fill()
+  //   }
+  // }
 
   console.log(ctx.canvas)
 })()
