@@ -1,3 +1,5 @@
+@use '../util' as utl;
+
 .grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -7,7 +9,7 @@
   width: min(100% - 40px, 1000px);
   margin-inline: auto;
 
-  @media (min-width: 900px) {
+  @include utl.breakpoint-up(large) {
     grid-template-columns: 2fr 1fr;
     grid-template-rows: auto;
   }
@@ -18,10 +20,30 @@
   }
 
   &__main {
-    background-color: hsl(211, 34%, 29%);
+    background-color: hsl(210, 68%, 12%);
+
+    @include utl.breakpoint-up(medium) {
+      background-color: hsl(211, 34%, 29%);
+    }
+
+    @include utl.breakpoint-up(large) {
+      background-color: hsl(220, 8%, 38%);
+    }
   }
 
   &__sidebar {
     background-color: hsl(220, 8%, 38%);
+
+    @include utl.breakpoint-up(medium) {
+      background-color: hsl(57, 9%, 46%);
+    }
+
+    @include utl.breakpoint-down(medium) {
+      text-align: center;
+    }
+
+    @include utl.breakpoint-down(small) {
+      text-align: right;
+    }
   }
 }
