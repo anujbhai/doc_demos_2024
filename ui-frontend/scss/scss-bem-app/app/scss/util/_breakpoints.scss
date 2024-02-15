@@ -1,15 +1,17 @@
+@use 'functions' as fn;
+
 // 700px, 900px, 1440px
 $breakpoints-up: (
-  'medium': 43.75em,
-  'large': 56.25em,
-  'xlarge': 90em,
+  'medium': fn.em(700),
+  'large': fn.em(900),
+  'xlarge': fn.em(1440),
 );
 
 // 699.98, 900.98, 1439.98 (inspired from bootstrap)
 $breakpoints-down: (
-  'small': 43.7485em,
-  'medium': 56.24875em,
-  'large': 89.99875em,
+  'small': fn.em(699.98),
+  'medium': fn.em(899.98),
+  'large': fn.em(1439.98),
 );
 
 @mixin breakpoint-up($size) {
