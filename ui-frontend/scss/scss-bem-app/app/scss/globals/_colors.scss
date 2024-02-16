@@ -1,4 +1,22 @@
+@use '../util' as utl;
+
+%widget {
+  padding: utl.rem(16);
+}
+
 :root {
     --background-color: hsl(0, 0%, 11%);
     --text-color: hsl(0, 0%, 100%);
+}
+
+.green {
+    @extend %widget;
+
+    background-color: #68a07e;
+}
+
+.neutral {
+    @extend %widget;
+
+    background-color: hsl(220, 8%, 38%);
 }
