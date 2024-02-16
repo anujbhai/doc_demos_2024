@@ -15,7 +15,7 @@
   }
 
   &__main,
-  &__sidebar {
+  &__widget {
     padding: 40px;
   }
 
@@ -28,22 +28,6 @@
 
     @include utl.breakpoint-up(large) {
       background-color: hsl(220, 8%, 38%);
-    }
-  }
-
-  &__sidebar {
-    background-color: hsl(220, 8%, 38%);
-
-    @include utl.breakpoint-up(medium) {
-      background-color: hsl(57, 9%, 46%);
-    }
-
-    @include utl.breakpoint-down(medium) {
-      text-align: center;
-    }
-
-    @include utl.breakpoint-down(small) {
-      text-align: right;
     }
   }
 }
