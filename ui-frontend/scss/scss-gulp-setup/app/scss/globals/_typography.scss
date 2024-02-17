@@ -1,0 +1,37 @@
+@use '../util/' as utl;
+
+h1,
+h2,
+h3 {
+    font-weight: 700;
+    line-height: 1.1;
+    margin-top: 0;
+}
+
+h1 {
+    font-size: clamp(utl.rem(28), utl.rem(16) + 2vw, utl.rem(40));
+
+    /* font-size: 28px;
+
+    @include utl.breakpoint-up(medium) {
+        font-size: 36px;
+    }
+
+    @include utl.breakpoint-up(large) {
+        font-size: 42px;
+    } */
+}
+h2 {
+    font-size: clamp(utl.rem(24), utl.rem(14) + 1.5vw, utl.rem(36));
+}
+
+p {
+    margin-top: 0;
+    font-size: utl.rem(16);
+}
+
+a,
+a:active,
+a:visited {
+    text-decoration: none;
+}

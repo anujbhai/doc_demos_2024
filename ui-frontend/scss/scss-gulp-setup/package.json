@@ -1,0 +1,25 @@
+{
+  "name": "scss-gulp-setup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anuj Upadhyay",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^9.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-imagemin": "^9.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-terser": "^2.1.0",
+    "gulp-webp": "^5.0.0",
+    "sass": "^1.71.0"
+  },
+  "overriides": {
+    "glob-parent": "5.1.2"
+  },
+  "type": "module"
+}
