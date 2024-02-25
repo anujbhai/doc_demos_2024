@@ -1,0 +1,118 @@
+/* Varials */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font: 400 1.125rem/1.5rem sans-serif;
+  color: #333;
+}
+body.boxed-layout {
+  background-color: #F9F9F9;
+}
+
+p {
+  margin-bottom: -0.5em;
+  color: #666;
+}
+p a {
+  color: #589ED3;
+}
+
+a {
+  text-decoration: none;
+  color: #CD746A;
+}
+a:hover {
+  color: #FFF;
+  background-color: #333;
+  text-decoration: underline;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 1.414rem 0 0.5rem;
+  font-weight: inherit;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2.369rem;
+}
+
+h3 {
+  font-size: 1.777rem;
+}
+
+h4 {
+  font-size: 0.75rem;
+}
+
+blockquote {
+  font-size: 150%;
+  font-style: italic;
+  padding: -1em -0.5em;
+  margin: -1em;
+}
+blockquote cite a {
+  color: #333;
+}
+blockquote cite a:hover {
+  color: #CD746A;
+  text-decoration: underline;
+  text-transform: uppercase;
+}
+blockquote cite:before {
+  content: "- ";
+}
+
+.container {
+  width: 960px;
+  margin-inline: auto;
+  margin-block: 0;
+}
+.fluid-layout .container {
+  width: 85%;
+}
+.boxed-layout .container {
+  background-color: #FFF;
+  padding: 3rem;
+  border: 1px solid #EAEAEA;
+  border-width: 0 1px;
+}
+.container > header h1 {
+  font-size: 4rem;
+  font-weight: 800;
+}
+.container nav {
+  padding: 3em 0;
+}
+.container nav ul {
+  list-style: none;
+  padding: 0;
+  overflow: hidden;
+}
+.container nav ul li {
+  float: left;
+}
+.container nav ul li a {
+  display: inline-block;
+  color: #333;
+  padding: 1rem;
+}
+.container nav ul li a:hover {
+  text-decoration: none;
+  background-color: #EAEAEA;
+}
+.container nav ul li a:after {
+  content: "";
+  border: 1px dotted #CCC;
+  width: 1px;
+  height: 100%;
+}
+
+/*# sourceMappingURL=main.css.map */

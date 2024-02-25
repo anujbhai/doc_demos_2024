@@ -1,0 +1,148 @@
+/* Varials */
+$base-font-size: 1em;
+$base-line-height: 1.5;
+$baseline: $base-font-size - $base-line-height;
+
+$body-typeface: sans-serif;
+
+$color-accent: #CD746A;
+$color-white: #FFF;
+$color-text: #333;
+$color-lt-grey: #EAEAEA;
+
+$fixed-layout-width: 960px;
+$fluid-layout-width: 85%;
+
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font: 400 1.125rem/1.5rem $body-typeface;
+  color: $color-text;
+
+  &.boxed-layout {
+    background-color: #F9F9F9;
+  }
+}
+p {
+  margin-bottom: $baseline;
+  color: #666;
+
+  a {
+    color: #589ED3;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: $color-accent;
+
+  &:hover {
+    color: $color-white;
+    background-color: $color-text;
+    text-decoration: underline;
+  }
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 1.414rem 0 0.5rem;
+  font-weight: inherit;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2.369rem;
+}
+
+h3 {
+  font-size: 1.777rem;
+}
+
+h4 {
+  font-size: 0.75rem;
+}
+
+blockquote {
+  font-size: 150%;
+  font-style: italic;
+  padding: $baseline * 2 $baseline;
+  margin: $baseline * 2;
+
+  cite {
+    a {
+      color: $color-text;
+
+      &:hover {
+        color: $color-accent;
+        text-decoration: underline;
+        text-transform: uppercase;
+      }
+    }
+
+    &:before {
+      content: "- ";
+    }
+  }
+}
+
+.container {
+  width: $fixed-layout-width;
+  margin-inline: auto;
+  margin-block: 0;
+
+  .fluid-layout & {
+    width: $fluid-layout-width;
+  }
+
+  .boxed-layout & {
+    background-color: #FFF;
+    padding: 3rem;
+    border: 1px solid $color-lt-grey;
+    border-width: 0 1px;
+  }
+
+  > header {
+    h1 {
+      font-size: 4rem;
+      font-weight: 800;
+    }
+  }
+
+  nav {
+    padding: 3em 0;
+
+    ul {
+      list-style: none;
+      padding: 0;
+      overflow: hidden;
+
+      li {
+        float: left;
+
+        a {
+          display: inline-block;
+          color: $color-text;
+          padding: 1rem;
+
+          &:hover {
+            text-decoration: none;
+            background-color: $color-lt-grey;
+          }
+        }
+
+        a:after {
+          content: "";
+          border: 1px dotted #CCC;
+          width: 1px;
+          height: 100%;
+        }
+      }
+    }
+  }
+}
+
