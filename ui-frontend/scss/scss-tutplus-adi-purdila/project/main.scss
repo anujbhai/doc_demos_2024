@@ -3,6 +3,7 @@ $base-font-size: 1em;
 $base-line-height: 1.5;
 $baseline: $base-font-size - $base-line-height;
 
+$body-font-size: 1.125rem;
 $body-typeface: sans-serif;
 
 $color-accent: #CD746A;
@@ -12,6 +13,22 @@ $color-lt-grey: #EAEAEA;
 
 $fixed-layout-width: 960px;
 $fluid-layout-width: 85%;
+$btn_primary: '-primary';
+$btn_default: '-default';
+
+$tablet-screen: 'screen and (max-width: 768px)';
+
+// map data type
+$theme-sans: (
+  family: (Arial, sans-serif),
+  size: 1.125rem,
+  line-height: 1.5
+);
+$theme-serif: (
+  family: (Georgia, serif),
+  size: 1.5rem,
+  line-height: 1.4
+);
 
 * {
   box-sizing: border-box;
@@ -19,11 +36,19 @@ $fluid-layout-width: 85%;
 body {
   margin: 0;
   padding: 0;
-  font: 400 1.125rem/1.5rem $body-typeface;
+  font: 400 #{$body-font-size}/#{$base-line-height} $body-typeface;
   color: $color-text;
 
   &.boxed-layout {
     background-color: #F9F9F9;
+  }
+
+  &.theme-sans {
+    font: #{map_get($theme-sans, size)}/#{map_get($theme-sans, line-height)} map_get($theme-sans, family);
+  }
+
+  &.theme-serif {
+    font: #{map_get($theme-serif, size)}/#{map_get($theme-serif, line-height)} map_get($theme-serif, family);
   }
 }
 p {
@@ -141,8 +166,34 @@ blockquote {
           width: 1px;
           height: 100%;
         }
+
+        @media #{$tablet-screen} {
+          float: none;
+
+          & a {
+            display: block;
+          }
+
+          &:after {
+            border: none;
+          }
+        }
       }
     }
+  }
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  color: #FFF;
+
+  &#{$btn_primary} {
+    background-color: #89C3AB;
+  }
+
+  &#{$btn_default} {
+    background-color: #686868;
   }
 }
 

@@ -6,11 +6,17 @@
 body {
   margin: 0;
   padding: 0;
-  font: 400 1.125rem/1.5rem sans-serif;
+  font: 400 1.125rem/1.5 sans-serif;
   color: #333;
 }
 body.boxed-layout {
   background-color: #F9F9F9;
+}
+body.theme-sans {
+  font: 1.125rem/1.5 Arial, sans-serif;
+}
+body.theme-serif {
+  font: 1.5rem/1.4 Georgia, serif;
 }
 
 p {
@@ -113,6 +119,29 @@ blockquote cite:before {
   border: 1px dotted #CCC;
   width: 1px;
   height: 100%;
+}
+@media screen and (max-width: 768px) {
+  .container nav ul li {
+    float: none;
+  }
+  .container nav ul li a {
+    display: block;
+  }
+  .container nav ul li:after {
+    border: none;
+  }
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  color: #FFF;
+}
+.btn-primary {
+  background-color: #89C3AB;
+}
+.btn-default {
+  background-color: #686868;
 }
 
 /*# sourceMappingURL=main.css.map */
