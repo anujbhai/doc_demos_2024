@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Merriweather:300,900|Six+Caps");
 body {
+  margin: 0;
   font-family: "Merriweather", serif;
   font-size: 1rem;
   font-weight: 300;
@@ -12,7 +13,7 @@ body {
     "hero hero hero hero"
     ". main sidebar ."
     "footer footer footer footer";*/
-  grid-template: "header header header header" 10em "hero hero hero hero" 50vh ". main sidebar ." auto "footer footer footer footer" 10em/1fr minmax(5%, 5fr) 2fr 1fr;
+  grid-template: "header header header header" 10em "hero hero hero hero" 50vh ". main sidebar ." auto "footer footer footer footer" 10em/1fr minmax(30em, 5fr) minmax(15em, 2fr) 1fr;
   column-gap: 1.5em;
 }
 
@@ -85,13 +86,16 @@ footer {
   grid-template-areas: "img title"
     "img content";*/
   grid-template: "img title" min-content "img content" auto/1fr auto;
-  gap: 1em;
-  padding: 1em;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.12);
+  gap: 1.5em;
+  padding: 1.5em;
+  margin-block-end: 3em;
+  box-shadow: 0 0 45px rgba(0, 0, 0, 0.075);
+  border-radius: 10px;
 }
 
 .card-img {
   grid-area: img;
+  border-radius: 10px;
 }
 
 .card-title {
@@ -102,6 +106,28 @@ footer {
 
 .card-content {
   grid-area: content;
+}
+.card-content p {
+  margin: 0;
+}
+.card-content a {
+  display: inline-block;
+  color: #252525;
+  background-color: transparent;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.75rem;
+  padding: 1em;
+  margin-block-start: 1em;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.12);
+}
+.card-content a:hover {
+  color: #e9d20f;
+  border: 1px solid #252525;
+  background-color: rgb(0, 0, 0);
 }
 
 /*# sourceMappingURL=style.css.map */
