@@ -1,0 +1,15 @@
+.parent-child-component {
+  padding: 30px;
+  background-color: #AED6F1;
+}
+
+.parent-component {
+  padding: 30px;
+  background-color: #7DCEA0;
+}
+
+.child-component {
+  padding: 30px;
+  background-color: #F9E79F;
+}
+
