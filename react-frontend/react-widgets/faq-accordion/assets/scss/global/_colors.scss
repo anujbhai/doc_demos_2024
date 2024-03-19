@@ -1,0 +1,14 @@
+@use '../utils' as utl;
+
+:root {
+  --primary-dark: #301534;
+  --primary-light: #8B6990;
+  --white: #FFFFFF;
+  --accent: #AD28EB;
+  --secondary: #F8EEFF;
+
+  --font-xl: #{ clamp(utl.rem(32), -0.060439560439560225rem + 8.79120879120879vw, utl.rem(56)) };
+  --font-m: #{ clamp(utl.rem(16), 0.8282967032967032rem + 0.7326007326007326vw, utl.rem(18)) };
+  --font-s: #{ clamp(utl.rem(14), 0.7032967032967032rem + 0.7326007326007326vw, utl.rem(16)) }; 
+}
+
