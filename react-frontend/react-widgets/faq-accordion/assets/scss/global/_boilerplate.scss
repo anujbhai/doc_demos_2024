@@ -1,0 +1,147 @@
+@use '../utils' as utl;
+@use '../global/mixins' as mixin;
+
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-size: var(--font-s);
+  font-family: "Work Sans", sans-serif;
+  background-color: var(--secondary);
+}
+
+h2, h3, p {
+  margin: 0;
+}
+
+h2, h3 {
+  color: var(--primary-dark);
+}
+
+h2 {
+  font-size: var(--font-xl);
+  font-weight: 700;
+  padding: 0 0 utl.rem(24) 0;
+
+  @include mixin.breakpoint-up(large) {
+    padding: 0 0 utl.rem(32) 0;
+  }
+
+  img {
+    width: 24px;
+    height: 24px;
+    margin-inline-end: utl.rem(24);
+
+    @include mixin.breakpoint-up(large) {
+      width: 40px;
+      height: 40px;
+    }
+  }
+}
+
+h3 {
+  &:hover {
+    color: var(--accent);
+  }
+}
+
+p {
+  font-size: var(--font-s);
+  color: var(--primary-light);
+  line-height: 150%;
+}
+
+.container {
+  max-width: utl.rem(600);
+  background-color: var(--white);
+  margin-block-start: utl.rem(-90);
+  margin-block-end: utl.rem(90);
+  margin-inline: utl.rem(24);
+  padding-inline: utl.rem(24);
+  padding-block-start: utl.rem(24);
+  position: relative;
+  z-index: 1;
+  border-radius: utl.rem(8);
+  box-shadow: 0 utl.rem(32) utl.rem(56) hsla(281, 100, 23, 0.1);
+
+  @include mixin.breakpoint-up(large) {
+    padding-block-start: utl.rem(40);
+    padding-block-end: utl.rem(16);
+    padding-inline: utl.rem(40);
+    margin-block-start: utl.rem(-153);
+    border-radius: utl.rem(16);
+    margin-inline: auto;
+  }
+}
+
+.faq-banner {
+  overflow: hidden;
+  height: utl.rem(232);
+
+  background-image: url('/images/background-pattern-mobile.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top left;
+
+  @include mixin.breakpoint-up(large) {
+    height: utl.rem(320);
+    background-image: url('/images/background-pattern-desktop.svg');
+  }
+}
+
+.accordion-item {
+  overflow: hidden;
+
+  &:not(:last-child) {
+    margin-block-end: utl.rem(24);
+
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      border-bottom: utl.rem(1) solid var(--secondary);
+    }
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    margin-block-end: utl.rem(24);
+
+    h3 {
+      width: 75%;
+
+      @include mixin.breakpoint-up(large) {
+        width: 90%;
+      }
+    }
+
+    span {
+    }
+  }
+
+  &__content {
+    transition: all 600ms ease-in-out;
+    max-height: 0;
+    margin-block-end: utl.rem(0);
+
+    &.show {
+      max-height: 100vh;
+      margin-block-end: utl.rem(24);
+    }
+  }
+}
+
