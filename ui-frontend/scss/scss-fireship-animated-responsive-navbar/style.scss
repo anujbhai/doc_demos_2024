@@ -1,0 +1,42 @@
+:root {
+  font-size: 1rem;
+  --text-primary: #B6B6B6;
+  --text-secondary: #ECECEC;
+  --bg-primary: #23232E;
+  --bg-secondary: #141418;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Syne", sans-serif;
+  color: var(--bg-primary);
+
+  &::-webkit-scrollbar {
+    width: 0.25rem;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #1E1E24;;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #6649b8;
+  }
+}
+
+h1 {
+  color: var(--bg-secondary);
+}
+
+main {
+  margin-inline-start: 5rem;
+  padding: 1rem;
+}
+
+.navbar {
+  width: 5rem;
+  height: 100vh;
+  position: fixed;
+  background-color: var(--bg-primary);
+}
