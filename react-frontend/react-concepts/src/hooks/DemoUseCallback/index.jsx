@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useCallback, useState } from "react"
 
 import Search from "../../components/Search"
 
@@ -15,12 +15,14 @@ function DemoUseCallback(props) {
 
   const [users, setUsers] = useState(allUsers)
 
-  const handleSearch = (text) => {
+  const handleSearch = useCallback((text) => {
+    console.log('first user:', users[0] )
+
     const filteredUsers = allUsers.filter((user) => user.includes(text))
 
     setUsers(filteredUsers)
-  }
-
+  }, [users])
+  
   const handleOnShuffleClick = () => {
     console.log('Shuffle', users)
     setUsers([...users].sort(() => Math.random() - 0.5))
