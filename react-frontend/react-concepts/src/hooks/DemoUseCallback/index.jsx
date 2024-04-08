@@ -3,7 +3,7 @@ import { useCallback, useState } from "react"
 import Search from "../../components/Search"
 
 const allUsers = [
-  'john',
+    'john',
   'alex',
   'george',
   'simon',
