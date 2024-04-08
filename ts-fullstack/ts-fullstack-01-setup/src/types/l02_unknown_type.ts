@@ -1,4 +1,10 @@
 function multiplyByTwo(number: unknown) {
-  return number * 2
+  if (typeof number === "number") {
+    return number * 2
+  }
+
+  return "please provide a valid number"
 }
 
+console.log(multiplyByTwo(number: 4))
+console.log(multiplyByTwo(number: "john"))
