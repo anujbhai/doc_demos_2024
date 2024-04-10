@@ -584,6 +584,14 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"h7u1C":[function(require,module,exports) {
+(function() {
+    function obj_type_demo() {
+        let person = {
+            name: "Mark",
+            age: 24
+        };
+    }
+})();
 
 },{}]},["4L2Af","h7u1C"], "h7u1C", "parcelRequiref4ac")
 
