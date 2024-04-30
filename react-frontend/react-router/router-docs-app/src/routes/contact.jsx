@@ -1,15 +1,36 @@
-import { Form, useLoaderData } from "react-router-dom"
+import { Form, useFetcher, useLoaderData } from "react-router-dom"
 import PropTypes from "prop-types"
-import { getContact } from "../contacts"
+import { getContact, updateContact } from "../contacts"
 
 export async function loader(props) {
     const {params} = props
     const contact = await getContact(params.contactId)
 
+    if (!contact) {
+        throw new Response("", {
+            status: 404,
+            statusText: "Not Found",
+        })
+    }
+
     return {contact}
 }
 loader.propTypes = {
     params: PropTypes.object
+}
+
+export async function action(props) {
+    const {request, params} = props
+
+    let formData = await request.formData()
+
+    return updateContact(params.contactId, {
+        favorite: formData.get("favorite") === "true"
+    })
+}
+action.propTypes = {
+    req: PropTypes.object,
+    params: PropTypes.object,
 }
 
 export default function Contact() {
@@ -73,11 +94,15 @@ export default function Contact() {
 
 function Favorite(props) {
     const {contact} = props
-
+    const fetcher = useFetcher()
     let favorite = contact.favorite
 
+    if (fetcher.formData) {
+        favorite = fetcher.formData.get("favorite") === "true"
+    }
+
     return (
-        <Form method="post">
+        <fetcher.Form method="post">
             <button
                 name="favorite"
                 value={favorite ? "false" : "true"}
@@ -89,7 +114,7 @@ function Favorite(props) {
             >
                 {favorite ? "★" : "☆"}
             </button>
-        </Form>
+        </fetcher.Form>
     )
 }
 
