@@ -1,11 +1,12 @@
-const Card = () => {
-    return (
-        <div class="bg-white p-4 text-center rounder-md shadaow-ms">
-          <h2>Card component</h2>  
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint error deserunt consectetur nulla inventore maiores quia animi eum suscipit! Deserunt temporibus nihil amet delectus placeat explicabo, eum enim. Ut, iusto!</p>
-          <button class="btn">Click here!</button>
-        </div>
-    )
+const Card = (props) => {
+  return (
+    <div
+      class="bg-white p-4 text-center"
+      classList={{"rounded-md": props.rounded, "shadow-md": !props.flat}}
+    >
+      {props.children}
+    </div>
+  )
 }
 
 export default Card
