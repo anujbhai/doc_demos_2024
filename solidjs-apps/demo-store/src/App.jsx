@@ -1,11 +1,37 @@
+import { createSignal } from "solid-js";
+import { A } from "@solidjs/router";
+
 import banner from "./assets/gradient.jpg"
-import Card from "./components/Card";
 
 function App() {
+  const [darkTheme, setDarkTheme] = createSignal(false)
+
+  function toggleDarkTheme() {
+    setDarkTheme(!darkTheme())
+    // console.log("dark theme:", darkTheme() ? "yes" : "no")
+  }
+
   return (
     <div class="container m-auto">
-      <header>
+      <header
+        class="my-4 p-2 text-xl flex items-center gap-4"
+        classList={{"bg-neutral-900": darkTheme(), "text-white": darkTheme()}}
+      >
+        <span
+          class="material-symbols-outlined cursor-pointer"
+          onClick={toggleDarkTheme}
+        >
+          light_mode
+        </span>
         <h1>Hello solid store.</h1>
+        
+        <nav>
+          <ul>
+            <li>
+              <A href="/">Home</A>
+            </li>
+          </ul>
+        </nav>
       </header>
 
       <img
@@ -15,28 +41,6 @@ function App() {
         src={banner}
         alt=""
       />
-
-      <div className="grid grid-cols-4 gap-10 my-4">
-        {/* <Card title="Basic Tee" /> */}
-        <Card
-          rounded={true}
-          flat={false}
-        >
-          <h2>Basic Tee, Black</h2>  
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint error deserunt consectetur nulla inventore maiores quia animi eum suscipit! Deserunt temporibus nihil amet delectus placeat explicabo, eum enim. Ut, iusto!</p>
-          <button class="btn">View</button>
-        </Card>
-        <Card
-          title="Basic Hoodie"
-          rounded={false}
-          flat={true}
-        >
-          <h2>Basic Tee, White</h2>  
-          <button class="btn">View</button>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint error deserunt consectetur nulla inventore maiores quia animi eum suscipit! Deserunt temporibus nihil amet delectus placeat explicabo, eum enim. Ut, iusto!</p>
-          <p>Only $ 10.00 /-</p>
-        </Card>
-      </div>
     </div>
   );
 }

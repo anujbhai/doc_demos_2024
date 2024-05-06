@@ -1,15 +1,19 @@
-import { createMemo, createSignal, type Component } from 'solid-js';
+import { createSignal, type Component } from 'solid-js';
 
 import styles from './App.module.css';
 
 function Counter() {
   const [count, setCount] = createSignal(0)
-  const squared = createMemo(() => count() ** 2)
+
+  function handleCount() {
+    setCount(count() + 1)
+  }
 
   return (
     <>
-      <p>{ count() }</p>
-      <p>{ squared() }</p>
+      <p>Count: { count() }</p>
+
+      <button onClick={handleCount}>Inc</button>
     </>
   )
 }
