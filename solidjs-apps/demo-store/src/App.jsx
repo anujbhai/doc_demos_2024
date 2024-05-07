@@ -2,13 +2,21 @@ import { createSignal } from "solid-js";
 import { A } from "@solidjs/router";
 
 import banner from "./assets/gradient.jpg"
+import { useCartContext } from "./context/CartContext";
 
-function App() {
+function App(props) {
   const [darkTheme, setDarkTheme] = createSignal(false)
 
   function toggleDarkTheme() {
     setDarkTheme(!darkTheme())
-    // console.log("dark theme:", darkTheme() ? "yes" : "no")
+  }
+
+  const {items} = useCartContext()
+
+  const quantity = () => {
+    return items.reduce((acc, current) => {
+      return acc + current.quantity
+    }, 0)
   }
 
   return (
@@ -28,19 +36,24 @@ function App() {
         <nav>
           <ul>
             <li>
-              <A href="/">Home</A>
+              <A href="/">Home</A>{" | "}
+              <A href="/cart">Cart ({quantity()})</A>
             </li>
           </ul>
         </nav>
       </header>
 
-      <img
-        class="rounded-md"
-        width="100%"
-        height="300px"
-        src={banner}
-        alt=""
-      />
+      <figure style={{height: "15rem", overflow: "hidden"}}>
+        <img
+          class="rounded-md"
+          width="100%"
+          height="300px"
+          src={banner}
+          alt=""
+        />
+      </figure>
+      
+      {props.children}
     </div>
   );
 }
