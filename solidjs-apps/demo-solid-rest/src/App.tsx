@@ -1,21 +1,19 @@
-import type { Component } from 'solid-js'
+import type { Component, JSX } from 'solid-js'
 
-import logo from './logo.svg'
-import styles from './App.module.css'
+// import logo from './logo.svg'
+// import styles from './App.module.css'
 import Navbar from './components/Navbar'
 
-const App: Component = (props: Component) => {
+const App: Component = (props: JSX.HTMLAttributes<HTMLDivElement>) => {
   return (
-    <div>
-      <h1>Heading</h1>
+    <div class="flex flex-col h-full min-h-screen">
+      <Navbar />
 
-      <div>
-        <Navbar />
-      </div>
-
-      {props.children}
+      <main class="px-8 py-4 flex-1 flex flex-col h-full">
+        {props.children}
+      </main>
     </div>
-  );
-};
+  )
+}
 
-export default App;
+export default App

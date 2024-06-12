@@ -1,9 +1,11 @@
 /* @refresh reload */
 import { render } from 'solid-js/web';
-import { Route } from '@solidjs/router';
+import { HashRouter, Route } from '@solidjs/router';
 
 import './index.css';
 import App from './App';
+import Home from './pages/Home';
+import About from './pages/About';
 
 const root = document.getElementById('root');
 
@@ -14,8 +16,8 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
 }
 
 render(() => (
-  <HashRouterRouter root={App}>
-    <Route path="/" component={() => <div>Home Component</div>}></Route>
-    <Route path="/about" component={() => <div>About Component</div>}></Route>
-  </HashRouterRouter>
+  <HashRouter root={App}>
+    <Route path="/" component={Home} />
+    <Route path="/about" component={About} />
+  </HashRouter>
 ), root!);
