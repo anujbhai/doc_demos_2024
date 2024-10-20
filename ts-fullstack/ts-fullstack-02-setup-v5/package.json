@@ -1,0 +1,15 @@
+{
+  "name": "ts-fullstack-02-setup-v5",
+  "version": "1.0.0",
+  "description": "TS masterclass by Manik (Cloudaffle) | updated on 18th July, 2024",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "npx tsc -w"
+  },
+  "author": "Anuj Upadhyay",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.5.3"
+  }
+}
