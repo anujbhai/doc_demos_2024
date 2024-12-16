@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
-import { NgFor, NgIf } from '@angular/common'
-import { WishList } from '../shared/models/wishItem';
 import { FormsModule } from '@angular/forms';
-// import { RouterOutlet } from '@angular/router';
+
+import { WishList } from '../shared/models/wishItem';
+import { WishListComponent } from './wish-list/wish-list.component';
+import { AddWishFormComponent } from './add-wish-form/add-wish-form.component';
+import { WishFilterComponent } from './wish-filter/wish-filter.component';
 
 @Component({
   selector: 'app-root',
-  imports: [NgFor, NgIf, FormsModule],
+  imports: [FormsModule, WishListComponent, AddWishFormComponent, WishFilterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -17,32 +19,11 @@ export class AppComponent {
     new WishList('Clean pens')
   ];
 
-  visibleItems : WishList[] = this.items;
+  filter: any = () => {};
 
-  listFilter: String = '0';
+  // title = 'wishText';
 
-  newWishText = '';
-
-  title = 'wishText';
-
-  addNewWish() {
-    this.items.push(new WishList(this.newWishText));
-    this.newWishText = '';
-  }
-
-  filterChanged(value: any) {
-    if (value === '0') {
-      this.visibleItems = this.items;
-    } else if (value === '1') {
-      this.visibleItems = this.items.filter(item => !item.isComplete);
-    } else {
-      this.visibleItems = this.items.filter(item => item.isComplete);
-    }
-    console.log(value)
-  }
-
-  toggleItem(item: WishList) {
-    item.isComplete = !item.isComplete;
-    console.log('clicked toggle:', item);
-  }
+  // get visibleItems(): WishList[] {
+  //   return this.items.filter(this.filter)
+  // }
 }
