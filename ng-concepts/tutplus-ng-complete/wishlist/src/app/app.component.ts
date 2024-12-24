@@ -8,7 +8,12 @@ import { WishFilterComponent } from './wish-filter/wish-filter.component';
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule, WishListComponent, AddWishFormComponent, WishFilterComponent],
+  imports: [
+    FormsModule,
+    WishListComponent,
+    AddWishFormComponent,
+    WishFilterComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -19,11 +24,5 @@ export class AppComponent {
     new WishList('Clean pens')
   ];
 
-  filter: any = () => {};
-
-  // title = 'wishText';
-
-  // get visibleItems(): WishList[] {
-  //   return this.items.filter(this.filter)
-  // }
+  filter: any;
 }
