@@ -1,0 +1,20 @@
+import { Subject } from "rxjs";
+
+class EventService {
+  private subject = new Subject();
+
+  emit(eventName: string, payload: any) {
+    this.subject.next({eventName, payload});
+  }
+
+  listen(eventName: string, callback: (event: any) => void) {
+    this.subject.asObservable().subscribe((next_obj: any) => {
+      if (eventName === next_obj.eventName) {
+        callback(next_obj.payload);
+      }
+    });
+  }
+}
+
+export default new EventService();
+

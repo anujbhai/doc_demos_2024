@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NgClass } from '@angular/common';
 
+import events from '../../shared/services/EventService'
 import { WishList } from '../../shared/models/wishItem';
 
 @Component({
@@ -10,21 +11,25 @@ import { WishList } from '../../shared/models/wishItem';
   styleUrl: './wish-list-item.component.css'
 })
 export class WishListItemComponent implements OnInit {
-  @Input() wishText!: string;
-  @Input() fulfilled!: boolean;
-
-  @Output() fulfilledChange = new EventEmitter<boolean>();
+  @Input() wish!: WishList;
+  // @Input() fulfilled!: boolean;
+  //
+  // @Output() fulfilledChange = new EventEmitter<boolean>();
 
   get cssClasses() {
-    return this.fulfilled ? 'strikeout text-muted' : '';
+    return this.wish.isComplete ? 'strikeout text-muted' : '';
   }
 
   constructor() {}
 
   ngOnInit(): void {}
 
+  removeWish() {
+    events.emit('removeWish', this.wish);
+  }
+
   toggleFulfilled() {
-    this.fulfilled = !this.fulfilled;
-    this.fulfilledChange.emit(this.fulfilled);
+    this.wish.isComplete = !this.wish.isComplete;
+    // this.fulfilledChange.emit(this.fulfilled);
   }
 }
