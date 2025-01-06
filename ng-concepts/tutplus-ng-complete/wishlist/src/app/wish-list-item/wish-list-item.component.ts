@@ -1,8 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NgClass } from '@angular/common';
 
-import events from '../../shared/services/EventService'
+// import events from '../../shared/services/EventService'
 import { WishList } from '../../shared/models/wishItem';
+import { EventService } from '../../shared/services/EventService';
 
 @Component({
   selector: 'wish-list-item',
@@ -20,12 +21,12 @@ export class WishListItemComponent implements OnInit {
     return this.wish.isComplete ? 'strikeout text-muted' : '';
   }
 
-  constructor() {}
+  constructor(private events: EventService) {}
 
   ngOnInit(): void {}
 
   removeWish() {
-    events.emit('removeWish', this.wish);
+    this.events.emit('removeWish', this.wish);
   }
 
   toggleFulfilled() {
