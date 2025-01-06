@@ -1,0 +1,23 @@
+[
+  {
+    "wishText": "To learn Angular",
+    "isComplete": true
+  },
+  {
+    "wishText": "Get Mabie Todd Swan and Eversharp Skyline",
+    "isComplete": false
+  },
+  {
+    "wishText": "Clean Parker Vacumatic",
+    "isComplete": true
+  },
+  {
+    "wishText": "Use Platinum ink in Plaisir",
+    "isComplete": false
+  },
+  {
+    "wishText": "Use Inspired blue ink in W5",
+    "isComplete": false
+  }
+]
+
