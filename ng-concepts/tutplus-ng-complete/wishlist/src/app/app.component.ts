@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
   //   new WishList('Wait for Vacumatic', true),
   //   new WishList('Clean pens')
   // ];
-  items!: WishList[];
+  items: WishList[] = [];
   filter: any;
 
   constructor(events: EventService, private wishService: WishService) {
@@ -38,8 +38,13 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.wishService.getWishes().subscribe((data: any) => {
-      this.items = data;
-    });
+    this.wishService.getWishes().subscribe(
+      (data: any) => {
+        this.items = data;
+      },
+      (err: any) => {
+        alert(err.message);
+      }
+    );
   }
 }
