@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
-import { WishList } from '../shared/models/wishItem';
+import { WishList } from '../../models/wishItem';
 
 @Injectable({
   providedIn: 'root'

@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
-import { WishList } from '../..//shared/models/wishItem';
+import { WishList } from '../../../models/wishItem';
 import { FormsModule } from '@angular/forms';
 
 @Component({
