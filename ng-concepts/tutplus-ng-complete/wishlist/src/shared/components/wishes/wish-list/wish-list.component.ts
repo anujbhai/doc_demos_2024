@@ -1,7 +1,7 @@
 import { Component, OnInit, Input} from '@angular/core';
 import { NgFor, NgIf } from '@angular/common'
 
-import { WishList } from '../../shared/models/wishItem';
+import { WishList } from '../../../models/wishItem';
 import { WishListItemComponent } from '../wish-list-item/wish-list-item.component';
 
 @Component({
