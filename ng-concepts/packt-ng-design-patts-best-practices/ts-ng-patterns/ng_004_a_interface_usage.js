@@ -2,11 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.basic_interface = basic_interface;
 function basic_interface() {
-    var chicken = {
+    let chicken = {
         kingdom: 'Animalia',
         species: 'Gallus',
         class: 'birds',
     };
-    console.log("kingdom: ".concat(chicken.kingdom, ", species: ").concat(chicken.species, ", class: ").concat(chicken.class));
+    console.log(`kingdom: ${chicken.kingdom}, species: ${chicken.species}, class: ${chicken.class}`);
 }
 basic_interface();
