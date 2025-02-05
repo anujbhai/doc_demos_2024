@@ -52,10 +52,8 @@ export function invoice_example() {
 
   console.log(`Invoice Total: ${get_total_invoice(example)}`);
   console.log('Discounted invoice:');
-  // console.table(JSON.stringify(discounted_invoice, null, 2))
   console.table(discounted_invoice)
   console.log(`New invoice Total: ${get_total_invoice(discounted_invoice)}`);
 } 
 invoice_example();
-// apply_discount(invoice_example(), 20);
 
