@@ -1,9 +1,11 @@
 <div>
-  <div class="question">This is the title of the first question</div>
+  <div class="question">{{ quizService.currentQuestion().question }}</div>
   <div class="answers">
-    <quiz-answers />
-    <quiz-answers />
-    <quiz-answers />
-    <quiz-answers />
+  @for (currentQuestionAnswer of quizService.currentQuestionAnswers(); track $index) {
+    <quiz-answers
+      [answerText]="currentQuestionAnswer"
+      [answerIndex]="$index"
+    />
+  }
   </div>
 </div>

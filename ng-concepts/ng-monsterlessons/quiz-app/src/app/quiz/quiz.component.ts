@@ -1,5 +1,6 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, inject, OnInit } from "@angular/core";
 import { QuestionsComponent } from "./components/questions/questions.components";
+import { QuizService } from "./services/quiz.service";
 
 @Component({
   selector: 'quiz',
@@ -10,6 +11,8 @@ import { QuestionsComponent } from "./components/questions/questions.components"
   ],
 })
 export class QuizComponent implements OnInit {
+  quizService = inject(QuizService);
+
   constructor() {}
 
   ngOnInit(): void {}

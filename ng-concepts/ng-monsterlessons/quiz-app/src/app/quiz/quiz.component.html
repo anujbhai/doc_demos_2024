@@ -1,8 +1,33 @@
 <div class="quiz">
-  <div>
-    <div class="score">Question 1/10</div>
-    <quiz-questions />
-    <div class="next-button">Next question</div>
+  @if (quizService.showResults()) {
+  <div class="results">
+    <div class="congratulations">
+      Congratulations!
+    </div>
+
+    <div class="results-info">
+      <p>You have completed the quiz.</p>
+      <p>You&apos;ve got 999 of {{ quizService.questions().length }} right.</p>
+    </div>
+
+    <div
+      class="next-button"
+      (click)="quizService.reset()"
+    >
+      Restart
+    </div>
   </div>
+  }
+
+  @if (!quizService.showResults()) {
+  <div>
+    <div class="score">Question {{ quizService.currentQuestionIndex() + 1 }}/{{ quizService.questions().length }}</div>
+    <quiz-questions />
+    <div
+      class="next-button"
+      (click)="quizService.goToNext()"
+    >Next question</div>
+  </div>
+  }
 </div>
 
