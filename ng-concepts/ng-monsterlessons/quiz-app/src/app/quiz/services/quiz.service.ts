@@ -9,7 +9,7 @@ export class QuizService {
     () => this.questions()[this.currentQuestionIndex()]
   );
   showResults = computed(
-    () => this.currentQuestionIndex() === this.questions().length - 1
+    () => this.currentQuestionIndex() === this.questions().length
   );
   currentQuestionAnswers = computed(() => this.shuffleAnswers(this.currentQuestion()));
 

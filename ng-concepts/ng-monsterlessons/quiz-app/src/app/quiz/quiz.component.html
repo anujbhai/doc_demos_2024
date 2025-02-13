@@ -1,5 +1,5 @@
 <div class="quiz">
-  @if (quizService.showResults()) {
+  @if (quizService.showResults() && quizService.questions().length > 0) {
   <div class="results">
     <div class="congratulations">
       Congratulations!
