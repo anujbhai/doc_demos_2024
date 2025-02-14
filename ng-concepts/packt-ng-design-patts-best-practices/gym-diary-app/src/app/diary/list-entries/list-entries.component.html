@@ -3,13 +3,10 @@
 
   <ul class="rounded border shadow">
     <li *ngFor="let item of exerciseList; index as i; trackBy: itemTrackBy">
-      <!-- <app-entry-item
+      <app-entry-item
         [exercise-set]="item"
         (deleteEvent)="deleteEvent.emit($event)"
         (newRepEvent)="newRepEvent.emit($event)"
-      /> -->
-      <app-entry-item
-        [exercise-set]="item"
       />
     </li>
   </ul>
