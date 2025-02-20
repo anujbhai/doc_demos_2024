@@ -1,0 +1,14 @@
+<div
+  class="book-item"
+  *ngFor="let book of books"
+>
+  <p>
+    {{ book.title }} <span>by {{ book.author_name }}</span>
+  </p>
+
+  <button
+    (click)="add.emit(book.cover_edition_key)"
+    data-test="add-button"
+  >Add to Collection</button>
+</div>
+
