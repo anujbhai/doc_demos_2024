@@ -37,7 +37,7 @@ export class DiaryComponent implements OnInit {
 
   addExercise(newSet: ExerciseSet) {
     // this.router.navigate(['new-template']);
-    this.router.navigate(['new-reactive']);
+    this.router.navigate(['entry']);
   }
 
   deleteItem(id: string) {
@@ -51,13 +51,18 @@ export class DiaryComponent implements OnInit {
       });
   }
 
-  newRep(updateSet: ExerciseSet) {
+  editEntry(updateSet: ExerciseSet) {
     const id = updateSet.id ?? '';
 
-    this.exerciseSetsService
-      .updateItem(id, updateSet)
-      .subscribe();
+    this.router.navigate([`entry/${ id }`]);
   }
+  // newRep(updateSet: ExerciseSet) {
+  //   const id = updateSet.id ?? '';
+  //
+  //   this.exerciseSetsService
+  //     .updateItem(id, updateSet)
+  //     .subscribe();
+  // }
 
   itemTrackBy(index: number, item: ExerciseSet) {
     return item.id;
