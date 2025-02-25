@@ -5,6 +5,7 @@ import { NewEntryFormTemplateComponent } from './diary/new-entry-form-template/n
 import { NewEntryFormReactiveComponent } from './diary/new-entry-form-reactive/new-entry-form-reactive.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { authGuard } from './login/auth.guard';
+import { diaryResolver, entryResolver } from './diary/diary.resolver';
 
 export const routes: Routes = [
   {
@@ -14,6 +15,7 @@ export const routes: Routes = [
         path: '',
         component: DiaryComponent,
         title: 'Diary',
+        resolve: { diaryApi: diaryResolver },
       },
       {
         path: 'new-template',
@@ -28,6 +30,7 @@ export const routes: Routes = [
         path: 'entry/:id',
         component: NewEntryFormReactiveComponent,
         title: 'Edit Entry',
+        resolve: { entry: entryResolver },
       },
     ],
     canActivate: [authGuard],
