@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 import { ExerciseSet, ExerciseSetList } from "./interfaces/exercise-set";
 import { ListEntriesComponent } from "./list-entries/list-entries.component";
@@ -18,15 +18,19 @@ import { ExerciseSetsService } from "./services/exercise-sets.service";
 })
 export class DiaryComponent implements OnInit {
   private exerciseSetsService = inject(ExerciseSetsService);
+  private route = inject(ActivatedRoute);
   private router = inject(Router);
   exerciseList!: ExerciseSetList;
 
   constructor() {}
 
   ngOnInit(): void {
-    this.exerciseSetsService
-      .getInitialList()
-      .subscribe((dataAPI) => (this.exerciseList = dataAPI.items));
+    // this.exerciseSetsService
+    //   .getInitialList()
+    //   .subscribe((dataAPI) => (this.exerciseList = dataAPI.items));
+    this.route.data.subscribe(({ diaryApi }) => {
+      this.exerciseList = diaryApi.items;
+    });
   }
 
   newList() {

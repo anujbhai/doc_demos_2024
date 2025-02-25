@@ -30,7 +30,7 @@ export class LoginComponent {
     this.loginService.login(loginValue)
       .subscribe({
         next: (_) => {
-          this.router.navigate(['/home']);
+          this.router.navigate(['']);
         },
         error: (err) => console.log('User not found'),
       });
