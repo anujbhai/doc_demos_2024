@@ -1,0 +1,7 @@
+<h2>Movie List</h2>
+
+<button (click)="loadMovies()">Load Movies</button>
+
+<li *ngFor="let movie of movies$ | async">
+  {{ movie.name }}
+</li>
