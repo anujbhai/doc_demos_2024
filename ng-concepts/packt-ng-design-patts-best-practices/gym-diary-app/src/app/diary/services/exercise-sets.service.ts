@@ -1,19 +1,27 @@
 import { Injectable, inject } from '@angular/core';
 import { ExerciseSet, ExerciseSetList, ExerciseSetListAPI } from '../interfaces/exercise-set';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { AuthService } from '../../login/auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ExerciseSetsService {
   private httpClient = inject(HttpClient);
-  private url = `http://localhost:3000/diary`;
+  // private authService = inject(AuthService);
+  // private url = `http://localhost:3000/diary`;
+  private url = `diary`;
 
   constructor() { }
 
   getInitialList(): Observable<ExerciseSetListAPI> {
-    return this.httpClient.get<ExerciseSetListAPI>(this.url);
+    // const headers = new HttpHeaders({
+    //   Authorization: `Bearer: ${ this.authService.token }`,
+    // });
+    // return this.httpClient.get<ExerciseSetListAPI>(this.url, { headers });
+    const headers = new HttpHeaders().set('X-TELEMETRY', 'true');
+    return this.httpClient.get<ExerciseSetListAPI>(this.url, { headers });
   }
 
   refreshList(): Observable<ExerciseSetListAPI> {
