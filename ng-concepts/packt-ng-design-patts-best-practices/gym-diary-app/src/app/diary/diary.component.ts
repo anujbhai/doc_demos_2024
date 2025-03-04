@@ -25,18 +25,17 @@ export class DiaryComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    // this.exerciseSetsService
-    //   .getInitialList()
-    //   .subscribe((dataAPI) => (this.exerciseList = dataAPI.items));
-    this.route.data.subscribe(({ diaryApi }) => {
-      this.exerciseList = diaryApi.items;
+    this.route.data.subscribe(({ exerciseList }) => {
+      // this.exerciseList = diaryApi.items;
+      this.exerciseList = exerciseList;
     });
   }
 
   newList() {
     this.exerciseSetsService
       .refreshList()
-      .subscribe((dataAPI) => (this.exerciseList = dataAPI.items));
+      // .subscribe((dataAPI) => (this.exerciseList = dataAPI.items));
+      .subscribe((exerciseList) => (this.exerciseList = exerciseList));
   }
 
   addExercise(newSet: ExerciseSet) {
